@@ -1,11 +1,20 @@
 <template>
   <v-container>
-    <youtube :video-id="ytData.data.items[2].id.videoId" ref="youtube"/>
-    <p>{{ ytData.data.items[0].id.videoId }}</p>
-    <p>{{ ytData.data.items[0].snippet.title }}</p>
-    <p>{{ ytData.data.items[0].snippet.description }}</p>
+    <ul id="example">
+      <li v-for="item in ytData.data.items" v-bind:key="item.id.videoId">
+        <h1>Tytuł: {{ item.snippet.title }}</h1>
+        <youtube :video-id="item.id.videoId" ref="youtube"/>
+        <p>Opis:</p>
+        <p>{{ item.snippet.description }}</p>
+      </li>
+    </ul>
   </v-container>
 </template>
+
+<style lang="sass" scoped>
+  li
+    list-style-type: none
+</style>
 
 <script>
 import Vue from 'vue';
@@ -20,13 +29,12 @@ export default {
   data() {
     return {
       ytData: null,
-      videoId: 'lG0Ys-2d4MA',
     };
   },
 
   mounted() {
     axios
-      .get('https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=20&order=date&q=%23hot16challenge&type=video&videoDefinition=high&key=AIzaSyCuBffhWIOOZlOg19GdJyz9x8YgCq-f2kE')
+      .get('https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=20&order=date&q=%23hot16challenge2&type=video&videoDefinition=high&key=AIzaSyCuBffhWIOOZlOg19GdJyz9x8YgCq-f2kE')
       .then((response) => { this.ytData = response; });
   },
 
@@ -41,7 +49,7 @@ export default {
       this.player.playVideo();
     },
     playing() {
-      console.log(' we are watching!!!');
+      console.log('We are watching!!!');
     },
   },
 };

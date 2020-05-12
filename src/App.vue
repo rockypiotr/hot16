@@ -4,9 +4,10 @@
       app
       dark
       dense
+      collapse
     >
       <v-app-bar-nav-icon></v-app-bar-nav-icon>
-      <v-app-toolbar-title>Hot16Challenge</v-app-toolbar-title>
+      <v-app-toolbar-title>Hot16</v-app-toolbar-title>
     </v-app-bar>
   <HelloWorld/>
   </v-app>
