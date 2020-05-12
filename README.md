@@ -1,4 +1,4 @@
-# ogrodnictwo
+# Hot 16 Challenge site
 
 ## Project setup
 ```
