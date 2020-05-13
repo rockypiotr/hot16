@@ -1,15 +1,33 @@
 <template>
   <v-app>
-    <v-app-bar
-      app
-      dark
-      dense
-      collapse
-    >
-      <v-app-bar-nav-icon></v-app-bar-nav-icon>
-      <v-app-toolbar-title>Hot16</v-app-toolbar-title>
+    <v-navigation-drawer v-model="drawer" app absolute temporary>
+      <v-list dense>
+        <v-list-item link @click="drawer = falsew">
+          <v-list-item-action>
+            <v-icon>mdi-view-dashboard</v-icon>
+          </v-list-item-action>
+          <v-list-item-content>
+            <v-list-item-title>Dashboard</v-list-item-title>
+          </v-list-item-content>
+        </v-list-item>
+        <v-list-item link @click="drawer = falsew">
+          <v-list-item-action>
+            <v-icon>mdi-cog</v-icon>
+          </v-list-item-action>
+          <v-list-item-content>
+            <v-list-item-title>Settings</v-list-item-title>
+          </v-list-item-content>
+        </v-list-item>
+      </v-list>
+    </v-navigation-drawer>
+
+    <v-app-bar app clipped-left>
+      <v-app-bar-nav-icon @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
+      <v-toolbar-title>Hot16Challenge2</v-toolbar-title>
     </v-app-bar>
-  <HelloWorld/>
+    <v-content>
+      <HelloWorld />
+    </v-content>
   </v-app>
 </template>
 
@@ -23,12 +41,20 @@ Vue.use(VueYoutube);
 export default {
   name: 'App',
 
+  props: {
+    source: String,
+  },
+
+  created() {
+    this.$vuetify.theme.dark = true;
+  },
+
   components: {
     HelloWorld,
   },
 
   data: () => ({
-    //
+    drawer: null,
   }),
 };
 </script>

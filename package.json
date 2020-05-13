@@ -1,5 +1,5 @@
 {
-  "name": "ogrodnictwo",
+  "name": "hot16",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -12,6 +12,7 @@
     "axios": "^0.19.2",
     "core-js": "^3.6.4",
     "git": "^0.1.5",
+    "prettier": "^2.0.5",
     "vue": "^2.6.11",
     "vue-axios": "^2.1.5",
     "vue-router": "^3.1.6",
